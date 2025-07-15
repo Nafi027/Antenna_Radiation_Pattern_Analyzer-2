@@ -838,7 +838,7 @@ st.markdown(
     """
     <div style='text-align: center; padding: 10px 0;'>
         <p style='color: #666; margin: 2px; font-size: 14px;'>📡 Antenna Pattern Analyzer v1.0</p>
-        <p style='color: #888; font-size: 13px; margin: 2px;'>Developed by <strong>Md. Nafiul Hasnat</strong></p>
+        <p style='color: #888; font-size: 13px; margin: 2px;'>Developed by <strong>Md. Nafiul Hasnat (EEE SUST)</strong></p>
         <p style='color: #999; font-size: 11px; margin: 2px;'>© 2025 All rights reserved | Powered by Streamlit</p>
     </div>
     """,
