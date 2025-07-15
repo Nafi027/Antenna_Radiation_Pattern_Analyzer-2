@@ -130,10 +130,6 @@ with st.sidebar:
 def create_plot_downloads(fig, filename_prefix):
     """Create an HTML download button for the plot (Streamlit Cloud-safe)"""
     col1, col2 = st.columns([1, 5])
-
-    with col1:
-        st.caption("⬇️ Export Plot")
-
     with col2:
         html_str = pio.to_html(fig, include_plotlyjs='cdn')
         st.download_button(
