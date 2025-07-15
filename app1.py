@@ -127,54 +127,21 @@ with st.sidebar:
     Ctrl/Cmd 0 : Reset zoom
     """)
 
-# Helper function to create download buttons for plots
 def create_plot_downloads(fig, filename_prefix):
-    """Create download buttons for multiple formats"""
-    col1, col2, col3, col4 = st.columns(4)
-    
+    """Create an HTML download button for the plot (Streamlit Cloud-safe)"""
+    col1, col2 = st.columns([1, 5])
+
     with col1:
-        # PNG download (high resolution)
-        img_bytes = pio.to_image(fig, format='png', width=1920, height=1080, scale=2)
-        st.download_button(
-            label="📥 PNG",
-            data=img_bytes,
-            file_name=f"{filename_prefix}.png",
-            mime="image/png"
-        )
-    
+        st.caption("⬇️ Export Plot")
+
     with col2:
-        # SVG download (vector format)
-        img_svg = pio.to_image(fig, format='svg')
-        st.download_button(
-            label="📥 SVG",
-            data=img_svg,
-            file_name=f"{filename_prefix}.svg",
-            mime="image/svg+xml"
-        )
-    
-    with col3:
-        # PDF download
-        try:
-            img_pdf = pio.to_image(fig, format='pdf')
-            st.download_button(
-                label="📥 PDF",
-                data=img_pdf,
-                file_name=f"{filename_prefix}.pdf",
-                mime="application/pdf"
-            )
-        except:
-            st.caption("PDF export needs kaleido")
-    
-    with col4:
-        # Interactive HTML
         html_str = pio.to_html(fig, include_plotlyjs='cdn')
         st.download_button(
-            label="📥 HTML",
+            label="📥 Download as HTML (interactive)",
             data=html_str,
             file_name=f"{filename_prefix}.html",
             mime="text/html"
         )
-
 # Enhanced plotly config for better interactivity
 plotly_config = {
     'displayModeBar': True,
